@@ -1,0 +1,22 @@
+
+apply plugin: 'application'
+
+mainClassName = 'Application'
+
+dependencies {
+
+    compile group: 'org.springframework', name: 'spring-context', version: "$rootProject.springContextVersion"
+
+    compile group: 'org.springframework.data', name: 'spring-data-cassandra', version: "$rootProject.springDataCassandraVersion"
+
+    compile group: 'org.twitter4j', name: 'twitter4j-core', version: "$rootProject.twitter4jVersion"
+
+    compile group: 'com.google.code.gson', name: 'gson', version: "$rootProject.gsonVersion"
+
+}
+
+run {
+    if (project.hasProperty('args')) {
+        args project.args.split('\\s+')
+    }
+}
